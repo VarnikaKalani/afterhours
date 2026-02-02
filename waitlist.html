@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> AfterHours - milk & cookies</title>
+    <title>AfterHours - Join the Waitlist</title>
     <style>
         * {
             margin: 0;
@@ -49,6 +49,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
@@ -59,11 +60,56 @@
             text-transform: lowercase;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 45px;
+            gap: 36px;
             align-items: center;
+            background: rgba(247, 244, 239, 0.75);
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(168, 150, 122, 0.18);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-links li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid rgba(168, 150, 122, 0.25);
+            background: var(--cream);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle span {
+            width: 18px;
+            height: 2px;
+            background: var(--dark-neutral);
+            border-radius: 999px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        nav.open .nav-toggle span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        nav.open .nav-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        nav.open .nav-toggle span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
         }
 
         nav a {
@@ -74,6 +120,9 @@
             letter-spacing: 1px;
             text-transform: lowercase;
             font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
         }
 
         nav a:hover {
@@ -83,7 +132,7 @@
 
         .nav-dropdown {
             position: relative;
-            padding-bottom: 14px;
+            padding-bottom: 0;
         }
 
         .nav-dropdown::after {
@@ -105,13 +154,13 @@
         .dropdown-menu {
             position: absolute;
             top: calc(100% + 10px);
-            left: 50%;
-            transform: translate(-50%, -6px);
-            min-width: 220px;
+            left: 0;
+            transform: translate(0, -6px);
+            min-width: 300px;
             background: var(--linen);
             border: 1px solid rgba(168, 150, 122, 0.2);
-            border-radius: 14px;
-            padding: 14px 16px;
+            border-radius: 18px;
+            padding: 18px 20px;
             box-shadow: 0 18px 40px rgba(90, 82, 69, 0.12);
             display: flex;
             flex-direction: column;
@@ -125,11 +174,12 @@
         }
 
         .dropdown-menu a {
-            font-size: 14px;
+            font-size: 16px;
             letter-spacing: 0.9px;
-            padding: 10px 12px;
+            padding: 12px 14px;
             border-radius: 10px;
             transition: all 0.3s ease;
+            display: block;
         }
 
         .dropdown-menu a:hover {
@@ -144,7 +194,7 @@
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
-            transform: translate(-50%, 0);
+            transform: translate(0, 0);
         }
 
         .cart-icon {
@@ -154,6 +204,9 @@
             color: var(--dark-neutral);
             transition: all 0.4s ease;
             opacity: 0.8;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
         }
 
         .cart-icon:hover {
@@ -181,19 +234,30 @@
         /* Hero Section */
         .hero {
             background: var(--warm-beige);
-            padding: 140px 40px 120px;
-            text-align: center;
+            padding: 40px 40px;
+            text-align: left;
             position: relative;
+            overflow: hidden;
+            height: calc(100vh - 90px);
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+            height: 100%;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 520px;
         }
 
         h1 {
             font-size: clamp(48px, 7vw, 86px);
-            margin-bottom: 30px;
+            margin-bottom: 22px;
             color: var(--dark-neutral);
             font-weight: 300;
             letter-spacing: -1px;
@@ -204,16 +268,14 @@
         .hero p {
             font-size: clamp(17px, 2vw, 20px);
             color: var(--soft-brown);
-            margin-bottom: 50px;
+            margin-bottom: 28px;
             max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
             font-weight: 300;
             letter-spacing: 0.5px;
         }
 
         .hero-problem {
-            margin: -20px auto 40px;
+            margin: -10px auto 26px;
             max-width: 520px;
             font-size: 14px;
             line-height: 1.7;
@@ -231,8 +293,31 @@
         .hero-buttons {
             display: flex;
             gap: 20px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
+        }
+
+        .hero-image {
+            order: -1;
+            flex: 0 0 calc(50vw + 40px);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-left: -40px;
+            max-width: 680px;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+        }
+
+        .hero-image img,
+        .hero-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 35% 50%;
         }
 
         .btn-primary {
@@ -300,6 +385,10 @@
             letter-spacing: 0.5px;
         }
 
+            .section-subtitle.compact {
+                margin-bottom: 0;
+            }
+
         .shop-header {
             text-align: center;
             margin-bottom: 32px;
@@ -344,30 +433,62 @@
             margin: 40px 0 14px;
         }
 
+        .shop-header .section-subtitle {
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .milk-header {
+            display: flex;
+            align-items: baseline;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: 30px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .milk-header .shop-subtitle {
+            margin: 0;
+            text-align: left;
+        }
+
+        .milk-header .section-subtitle {
+            margin: 0;
+            max-width: 520px;
+            text-align: left;
+            color: var(--soft-brown);
+        }
+
         /* Product Grid */
-        .product-grid {
+        .milk-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 50px;
-            margin-top: 60px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 30px;
         }
 
         .product-card {
             background: var(--linen);
-            border-radius: 24px;
+            border-radius: 18px;
             overflow: hidden;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
             border: 1px solid rgba(168, 150, 122, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(90, 82, 69, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(90, 82, 69, 0.08);
         }
 
         .product-image {
             width: 100%;
-            height: 380px;
+            height: 210px;
             background: linear-gradient(135deg, var(--stone) 0%, var(--warm-beige) 100%);
             display: flex;
             align-items: center;
@@ -395,45 +516,59 @@
         }
 
         .product-content {
-            padding: 40px 35px;
+            padding: 20px 20px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
         }
 
         .product-card h3 {
-            font-size: 26px;
+            font-size: 20px;
             color: var(--dark-neutral);
-            margin-bottom: 10px;
+            margin-bottom: 4px;
             font-weight: 400;
             letter-spacing: 0.5px;
+            line-height: 1.2;
+            min-height: 2.4em;
         }
 
         .product-origin {
-            font-size: 13px;
+            font-size: 11px;
             color: var(--soft-brown);
             font-style: italic;
-            margin-bottom: 18px;
+            margin-bottom: 0;
             letter-spacing: 0.8px;
             font-weight: 300;
         }
 
         .product-description {
             color: var(--dark-neutral);
-            margin-bottom: 18px;
-            font-size: 15px;
-            line-height: 1.8;
+            margin-bottom: 14px;
+            font-size: 14px;
+            line-height: 1.7;
             opacity: 0.85;
             font-weight: 300;
         }
 
         .wellness-note {
-            padding: 18px;
+            padding: 14px 16px;
             background: rgba(181, 186, 163, 0.1);
             border-radius: 16px;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--dark-neutral);
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             border-left: 2px solid var(--muted-sage);
-            line-height: 1.7;
+            line-height: 1.6;
             font-weight: 300;
+        }
+
+        .product-description,
+        .wellness-note {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .wellness-note strong {
@@ -442,31 +577,82 @@
         }
 
         .product-price {
-            font-size: 32px;
+            font-size: 22px;
             color: var(--dark-neutral);
             font-weight: 300;
-            margin: 20px 0;
+            margin: 0;
             letter-spacing: -0.5px;
         }
 
+        .milk-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .milk-choice {
+            font-size: 11px;
+            color: var(--dark-neutral);
+            letter-spacing: 0.6px;
+            text-transform: lowercase;
+            opacity: 0.7;
+        }
+
         .product-options {
-            margin: 25px 0;
+            display: none;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .product-card.options-open .product-options {
+            display: grid;
+        }
+
+        .product-card.options-open .milk-add {
+            display: block;
+        }
+
+        .option-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .option-label {
             display: block;
-            font-size: 13px;
+            font-size: 10px;
             color: var(--dark-neutral);
-            margin-bottom: 12px;
+            margin: 0;
             font-weight: 400;
             letter-spacing: 1px;
             text-transform: lowercase;
+            min-width: 76px;
         }
 
         .temp-selector, .sweetness-selector {
             display: flex;
             gap: 10px;
-            margin-bottom: 18px;
+            margin-bottom: 0;
+            flex: 1;
+        }
+
+        .option-toggle {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(168, 150, 122, 0.22);
+            background: var(--cream);
+            color: var(--dark-neutral);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .option-toggle:hover {
+            background: var(--warm-beige);
         }
 
         .option-btn {
@@ -483,6 +669,11 @@
             letter-spacing: 0.5px;
         }
 
+        .product-options .option-btn {
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+
         .option-btn:hover {
             background: var(--warm-beige);
             border-color: var(--soft-brown);
@@ -492,6 +683,13 @@
             background: var(--soft-brown);
             border-color: var(--soft-brown);
             color: var(--cream);
+        }
+
+        .milk-add {
+            display: none;
+            padding: 12px;
+            font-size: 12px;
+            letter-spacing: 1.2px;
         }
 
         .add-to-cart {
@@ -513,6 +711,73 @@
             background: var(--dark-neutral);
             transform: translateY(-1px);
             box-shadow: 0 8px 20px rgba(90, 82, 69, 0.15);
+        }
+
+        .cookie-spotlight {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: minmax(200px, 320px) 1fr;
+            gap: 24px;
+            background: var(--linen);
+            border-radius: 24px;
+            border: 1px solid rgba(168, 150, 122, 0.18);
+            overflow: hidden;
+            align-items: stretch;
+        }
+
+        .cookie-spotlight .cookie-image {
+            background: var(--warm-beige);
+            min-height: 220px;
+        }
+
+        .cookie-spotlight .cookie-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cookie-spotlight .cookie-content {
+            padding: 28px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cookie-tag {
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            text-transform: lowercase;
+            color: var(--soft-brown);
+        }
+
+        .cookie-spotlight h3 {
+            font-size: 24px;
+            margin: 0;
+            color: var(--dark-neutral);
+            font-weight: 400;
+        }
+
+        .cookie-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--dark-neutral);
+            opacity: 0.85;
+        }
+
+        .cookie-spotlight .product-price {
+            font-size: 26px;
+        }
+
+        .cookie-spotlight .cookie-content {
+            align-items: flex-start;
+        }
+
+        .cookie-spotlight .add-to-cart {
+            width: auto;
+            min-width: 180px;
+            padding: 12px 28px;
+            letter-spacing: 1px;
         }
 
         /* Add to cart animation */
@@ -636,6 +901,103 @@
             text-align: center;
         }
 
+        .section-divider {
+            height: 1px;
+            background: rgba(168, 150, 122, 0.2);
+            margin: 0 40px;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 100px 40px;
+            background: var(--cream);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: var(--linen);
+            border-radius: 24px;
+            border: 1px solid rgba(168, 150, 122, 0.18);
+            box-shadow: 0 18px 40px rgba(90, 82, 69, 0.06);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .review-card.with-image {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .review-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: var(--warm-beige);
+            overflow: hidden;
+        }
+
+        .review-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .review-card-body {
+            padding: 22px 24px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .review-product {
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            text-transform: lowercase;
+            color: var(--soft-brown);
+        }
+
+        .review-meta {
+            font-size: 11px;
+            letter-spacing: 0.6px;
+            color: var(--soft-brown);
+            opacity: 0.9;
+        }
+
+        .review-stars {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--soft-brown);
+            white-space: nowrap;
+        }
+
+        .review-body {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--dark-neutral);
+            opacity: 0.9;
+        }
+
+        .reviewer {
+            font-size: 12px;
+            color: var(--dark-neutral);
+            opacity: 0.75;
+        }
+
         /* Origin Story Map */
         .origin-story {
             padding: 110px 40px;
@@ -649,22 +1011,36 @@
             color: var(--dark-neutral);
         }
 
-        .origin-header {
-            text-align: center;
-            max-width: 820px;
-            margin: 0 auto 45px;
+        .origin-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+            gap: 38px;
+            align-items: center;
         }
 
-        .origin-header p {
-            color: rgba(90, 82, 69, 0.7);
+        .origin-copy {
+            max-width: 560px;
+        }
+
+        .origin-copy h2 {
+            text-align: left;
+            margin-bottom: 18px;
+            font-size: clamp(30px, 3.8vw, 44px);
+            line-height: 1.15;
+        }
+
+        .origin-copy p {
+            color: rgba(90, 82, 69, 0.75);
             font-weight: 300;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
+            line-height: 1.9;
+            margin-bottom: 18px;
         }
 
         .eyebrow {
             display: inline-block;
             margin-bottom: 12px;
-            font-size: 11px;
+            font-size: 14px;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--soft-brown);
@@ -672,12 +1048,13 @@
 
         .origin-map {
             position: relative;
-            border-radius: 28px;
-            padding: 26px;
+            border-radius: 30px;
+            padding: 32px;
             background: var(--cream);
             border: 1px solid rgba(168, 150, 122, 0.2);
             overflow: hidden;
             box-shadow: 0 25px 60px rgba(90, 82, 69, 0.15);
+            margin-left: -22px;
         }
 
         .origin-map::before {
@@ -1208,6 +1585,11 @@
             margin-bottom: 18px;
         }
 
+        .bundle-customization .option-label {
+            font-size: 12px;
+            min-width: 0;
+        }
+
         .customization-title {
             font-size: 16px;
             color: var(--dark-neutral);
@@ -1271,35 +1653,6 @@
             font-weight: 300;
         }
 
-        /* About Section */
-        .about {
-            padding: 100px 40px;
-            background: var(--stone);
-            color: var(--dark-neutral);
-        }
-
-        .about h2 {
-            color: var(--dark-neutral);
-        }
-
-        .about-content {
-            max-width: 750px;
-            margin: 50px auto;
-            text-align: center;
-            font-size: 17px;
-            line-height: 2;
-            font-weight: 300;
-        }
-
-        .about-quote {
-            font-size: 28px;
-            font-style: italic;
-            color: var(--soft-brown);
-            margin: 50px 0;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
         /* Waitlist Section */
         .waitlist-section {
             background: var(--warm-beige);
@@ -1354,6 +1707,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 1100px) {
+            .milk-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 25px;
@@ -1364,23 +1723,104 @@
                 right: -100%;
             }
 
-            nav ul {
-                gap: 25px;
+            .nav-toggle {
+                display: inline-flex;
             }
 
-            .product-grid {
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: calc(100% + 14px);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                padding: 18px 20px;
+                background: var(--linen);
+                border-radius: 20px;
+                box-shadow: 0 16px 36px rgba(90, 82, 69, 0.12);
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-6px);
+                transition: all 0.25s ease;
+            }
+
+            nav.open .nav-links {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .milk-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 200px;
+            }
+
+            .option-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .option-label {
+                min-width: 0;
+            }
+
+            .cookie-spotlight {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-spotlight .cookie-content {
+                padding: 22px;
             }
 
             .bundle-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding: 100px 25px 80px;
+            .reviews-grid {
+                grid-template-columns: 1fr;
             }
 
-            .featured, .bundles, .about {
+            .hero {
+                padding: 90px 25px 60px;
+                text-align: center;
+                height: auto;
+            }
+
+            .hero-layout {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-content {
+                max-width: 560px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: 0;
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+                flex: 0 0 auto;
+                height: auto;
+                max-width: 100%;
+                box-shadow: 0 24px 50px rgba(90, 82, 69, 0.18);
+            }
+
+            .hero-image img,
+            .hero-image video {
+                width: min(520px, 90vw);
+                height: auto;
+            }
+
+
+            .featured, .bundles {
                 padding: 70px 25px;
             }
 
@@ -1388,8 +1828,26 @@
                 padding: 80px 25px;
             }
 
+            .section-divider {
+                margin: 0 25px;
+            }
+
+            .origin-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .origin-copy {
+                margin: 0 auto;
+            }
+
+            .origin-copy h2 {
+                text-align: center;
+            }
+
             .origin-map {
-                padding: 18px;
+                padding: 22px;
+                margin-left: 0;
             }
 
             .map-label {
@@ -1404,212 +1862,53 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+    
     </style>
 </head>
 <body>
-    <!-- Cart Notification -->
-    <div class="cart-notification" id="cartNotification">
-        ✓ Added to cart!
-    </div>
-
     <!-- Navigation -->
     <nav>
         <div class="container">
             <div class="logo">AfterHours</div>
-            <ul>
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li class="nav-dropdown">
-                    <a href="#shop" class="nav-link">Shop</a>
+                    <a href="moonlight-sips-shop.html#shop" class="nav-link">Shop</a>
                     <div class="dropdown-menu" aria-label="Shop">
-                        <a href="#individuals">Individual milks</a>
-                        <a href="#bundles">Comfort bundles</a>
+                        <a href="moonlight-sips-shop.html#individuals">Milks</a>
+                        <a href="moonlight-sips-shop.html#cookie">Signature cookie</a>
+                        <a href="moonlight-sips-shop.html#bundles">Comfort bundles</a>
                     </div>
                 </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#waitlist">Waitlist</a></li>
-                <li>
-                    <div class="cart-icon" onclick="toggleCart()">
-                        🛒
-                        <span class="cart-count" id="cartCount">0</span>
-                    </div>
-                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="moonlight-sips-shop.html#reviews">Reviews</a></li>
+                <li><a href="waitlist.html">Waitlist</a></li>
             </ul>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>late nights shouldn’t feel empty</h1>
-            <p>when everything is closed and your mind is still on, comfort is hard to find. we bring warm milk rituals and cookies to your door, right when you need them.</p>
-            <div class="hero-problem">
-                <span>the problem:</span> midnight cravings, nowhere to go.<br>
-                <span>the fix:</span> soft, warm comfort delivered.
-            </div>
-            <div class="hero-buttons">
-                <a href="#shop" class="btn-primary">order now</a>
-                <a href="#bundles" class="btn-secondary">view bundles</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products Section -->
-    <section class="featured" id="shop">
-        <div class="container">
-            <div class="shop-header">
-                <h2>shop</h2>
-                <p class="section-subtitle">shop the collection: individual milks and comfort bundles</p>
-            </div>
-
-            <h3 id="individuals" class="shop-subtitle">individual milks</h3>
-            <p class="section-subtitle">every milk available hot or cold · sweetness customizable<br>includes signature cookie pairing option</p>
-            
-            <div class="product-grid" id="productGrid">
-                <!-- Products will be dynamically loaded -->
-            </div>
-        </div>
-    </section>
-
-    <section class="bundles" id="bundles">
-        <div class="container">
-          <h2>comfort bundles</h2>
-          <p class="section-subtitle">curated sets for every late-night ritual</p>
-      
-          <div class="bundle-grid">
-      
-            <div class="bundle-card">
-              <span class="bundle-badge">SAVE ₹300</span>
-              <h3>Moonlight Duo</h3>
-              <ul class="bundle-items">
-                <li>2 milks of your choice (hot or cold)</li>
-                <li>2 signature chocolate chip cookies</li>
-              </ul>
-              <div class="bundle-price">₹1700 <span>₹2000</span></div>
-              <button class="add-to-cart" onclick="openBundleModal('Moonlight Duo', 2, 2, 1700)">Customize Bundle</button>
-              <p class="bundle-note">perfect for sharing or savoring slowly</p>
-            </div>
-      
-            <div class="bundle-card">
-              <span class="bundle-badge">SAVE ₹600</span>
-              <h3>Night Owl Trio</h3>
-              <ul class="bundle-items">
-                <li>3 milks (mix hot & cold)</li>
-                <li>4 cookies</li>
-              </ul>
-              <div class="bundle-price">₹2700 <span>₹3300</span></div>
-              <button class="add-to-cart" onclick="openBundleModal('Night Owl Trio', 3, 4, 2700)">Customize Bundle</button>
-              <p class="bundle-note">fuel for long nights of focus</p>
-            </div>
-      
-            
-      
-          </div>
-        </div>
-      </section>
-
-    <!-- Origin Story -->
-    <section class="origin-story" id="origin">
-        <div class="container">
-            <div class="origin-header">
-                <span class="eyebrow">origin story</span>
-                <h2>milk traditions, digitally connected - all routes lead to india</h2>
-                <p>we trace late-night comfort rituals across the world and bring them home, so every cup feels familiar.</p>
-            </div>
-
-            <div class="origin-map" aria-hidden="true">
-                <div class="map-sheen"></div>
-                <svg class="map-svg" viewBox="0 0 900 420" role="img">
-                    <defs>
-                        <marker id="mapArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                            <path d="M0 0 L10 5 L0 10 Z" fill="rgba(90, 82, 69, 0.6)"></path>
-                        </marker>
-                    </defs>
-                    <g class="map-land">
-                        <!-- Mexico -->
-                        <path d="M95 165 L130 140 L175 140 L215 160 L235 185 L220 205 L190 215 L175 235 L150 230 L140 210 L120 205 L100 190 Z"></path>
-                        <!-- Netherlands -->
-                        <path d="M455 118 L470 108 L490 112 L500 128 L492 142 L470 142 L455 132 Z"></path>
-                        <!-- India -->
-                        <path d="M560 175 L605 155 L655 165 L695 210 L685 250 L655 285 L610 295 L575 270 L545 225 Z"></path>
-                        <!-- Sri Lanka -->
-                        <path d="M735 320 L752 316 L768 328 L762 346 L742 350 L730 336 Z"></path>
-                    </g>
-
-                    <g class="map-arcs">
-                        <path class="map-arc" d="M150 190 Q340 60 600 220" marker-end="url(#mapArrow)"></path>
-                        <path class="map-arc" d="M470 130 Q550 150 600 220" marker-end="url(#mapArrow)"></path>
-                        <path class="map-arc" d="M740 320 Q690 270 600 220" marker-end="url(#mapArrow)"></path>
-                    </g>
-
-                    <g class="map-nodes">
-                        <circle class="map-node" cx="150" cy="190" r="6"></circle>
-                        <text class="map-label" x="95" y="220">
-                            <tspan x="95" dy="0">Mexico</tspan>
-                            <tspan x="95" dy="16">Horchata</tspan>
-                        </text>
-
-                        <circle class="map-node" cx="470" cy="130" r="6"></circle>
-                        <text class="map-label" x="390" y="110">
-                            <tspan x="390" dy="0">Netherlands</tspan>
-                            <tspan x="390" dy="16">Anijsmelk</tspan>
-                        </text>
-
-                        <circle class="map-node" cx="740" cy="320" r="6"></circle>
-                        <text class="map-label" x="655" y="345">
-                            <tspan x="655" dy="0">Sri Lanka</tspan>
-                            <tspan x="655" dy="16">Ceylon Cinnamon</tspan>
-                        </text>
-
-                        <circle class="map-node destination" cx="600" cy="220" r="8"></circle>
-                        <circle class="map-pulse" cx="600" cy="220" r="16"></circle>
-                        <text class="map-label destination-label" x="610" y="245">
-                            <tspan x="610" dy="0">India</tspan>
-                            <tspan x="610" dy="16">Home Base</tspan>
-                        </text>
-                    </g>
-                </svg>
-
-                <div class="map-legend">
-                    <span class="legend-dot"></span>
-                    origins mapped · signals linked · delivered to india
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2>about us</h2>
-            <div class="about-content">
-                <div class="about-quote">
-                    "the day slows down.<br>
-                    the night finally listens.<br><br>
-                    we made this for the quiet hours."
-                </div>
-                <p>AfterHours is for late-night thinkers, creators, students, and anyone unwinding when the world goes quiet. It's comfort for the hours that don't fit a 9-to-5 schedule.</p>
-                <p style="margin-top: 20px;">We bring warm milk traditions from around the world, from Dutch anijsmelk to Indian kesar badam, and deliver them fresh with cookies made for dipping.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Waitlist Section -->
     <section class="featured waitlist-section" id="waitlist">
         <div class="container">
             <h2>join the waitlist</h2>
             <p class="section-subtitle">be the first to know when we launch in your city</p>
-            
+
             <div style="max-width: 600px; margin: 0 auto;">
                 <form id="waitlistForm" style="background: var(--linen); padding: 50px; border-radius: 24px; box-shadow: 0 8px 30px rgba(90, 82, 69, 0.08);">
                     <div style="margin-bottom: 25px;">
                         <label style="display: block; color: var(--dark-neutral); font-weight: 400; margin-bottom: 10px; letter-spacing: 0.5px; text-transform: lowercase;">name</label>
                         <input type="text" id="waitlistName" required style="width: 100%; padding: 16px; border: 1.5px solid rgba(168, 150, 122, 0.2); border-radius: 16px; font-size: 15px;">
                     </div>
-                    
+
                     <div style="margin-bottom: 25px;">
                         <label style="display: block; color: var(--dark-neutral); font-weight: 400; margin-bottom: 10px; letter-spacing: 0.5px; text-transform: lowercase;">email</label>
                         <input type="email" id="waitlistEmail" required style="width: 100%; padding: 16px; border: 1.5px solid rgba(168, 150, 122, 0.2); border-radius: 16px; font-size: 15px;">
                     </div>
-                    
+
                     <div style="margin-bottom: 25px;">
                         <label style="display: block; color: var(--dark-neutral); font-weight: 400; margin-bottom: 10px; letter-spacing: 0.5px; text-transform: lowercase;">phone (optional)</label>
                         <input type="tel" id="waitlistPhone" style="width: 100%; padding: 16px; border: 1.5px solid rgba(168, 150, 122, 0.2); border-radius: 16px; font-size: 15px;">
@@ -1619,11 +1918,11 @@
                         <label style="display: block; color: var(--dark-neutral); font-weight: 400; margin-bottom: 10px; letter-spacing: 0.5px; text-transform: lowercase;">city</label>
                         <input type="text" id="waitlistCity" required style="width: 100%; padding: 16px; border: 1.5px solid rgba(168, 150, 122, 0.2); border-radius: 16px; font-size: 15px;">
                     </div>
-                    
+
                     <button type="submit" style="width: 100%; padding: 18px; background: var(--soft-brown); color: var(--cream); border: none; border-radius: 50px; font-size: 16px; font-weight: 400; cursor: pointer; transition: all 0.4s ease; letter-spacing: 1.5px; text-transform: lowercase;">
                         join the waitlist
                     </button>
-                    
+
                     <div id="waitlistSuccess" style="display: none; margin-top: 25px; padding: 22px; background: rgba(181, 186, 163, 0.2); border-radius: 16px; text-align: center; color: var(--dark-neutral); font-weight: 300;">
                         <p style="font-size: 17px; font-weight: 400; margin-bottom: 8px;">✓ you're on the list!</p>
                         <p>see you at midnight 🌙</p>
@@ -1641,753 +1940,53 @@
         <div class="container">
             <div class="logo" style="margin-bottom: 25px; font-size: 22px;">afterhours </div>
             <p style="margin-bottom: 20px; font-weight: 300; opacity: 0.8;">late-night milk & cookies delivery at your doorstep</p>
-            
+
             <div class="footer-links">
-                <a href="#shop">Shop</a>
-                <a href="#bundles">Bundles</a>
-                <a href="#about">About</a>
-                <a href="#waitlist">Waitlist</a>
-                <a href="#">Instagram</a>
+                <a href="moonlight-sips-shop.html#shop">Shop</a>
+                <a href="moonlight-sips-shop.html#bundles">Bundles</a>
+                <a href="about.html">About</a>
+                <a href="waitlist.html">Waitlist</a>
+                <a href="https://www.instagram.com/that.afterhours" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="#">Contact</a>
             </div>
-            
+
             <p style="margin-top: 45px; opacity: 0.5; font-size: 13px; font-weight: 300;">© 2026 afterhours · for quiet nights</p>
         </div>
     </footer>
 
-    
-
-    <!-- Cart Sidebar -->
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Your Cart</h3>
-            <button class="close-cart" onclick="toggleCart()">×</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="empty-cart">
-                <p style="font-size: 48px; margin-bottom: 15px;">🥛</p>
-                <p>Your cart is empty</p>
-                <p style="font-size: 14px; margin-top: 10px;">Add some comfort to your night</p>
-            </div>
-        </div>
-        <div class="cart-footer" id="cartFooter" style="display: none;">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">$0</span>
-            </div>
-            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-        </div>
-    </div>
-
-    <!-- Bundle Customization Modal -->
-    <div class="bundle-modal" id="bundleModal">
-        <div class="bundle-modal-content">
-            <div class="bundle-modal-header">
-                <h3 id="bundleModalTitle"></h3>
-                <button class="close-modal" onclick="closeBundleModal()">×</button>
-            </div>
-            
-            <div class="bundle-selection">
-                <h4>Choose Your Milks <span class="selected-count" id="milkCount">0/0</span></h4>
-                <div class="milk-selection-grid" id="milkSelectionGrid"></div>
-                <div class="selection-error" id="milkError" style="display: none;"></div>
-            </div>
-
-            <div id="customizationOptions"></div>
-
-            <div class="bundle-modal-footer">
-                <div class="bundle-total" id="bundleModalPrice"></div>
-                <button class="add-bundle-btn" id="addBundleBtn" onclick="addCustomizedBundle()">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        const SUPABASE_URL = "https://hkeauskaiaqhrfrzmapz.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_WF2-Ksp7qbP7EoKHGAd2Ow_27d4NIdv";
+        const WAITLIST_TABLE = "waitlist";
+        const CART_SNAPSHOT_KEY = "afterhours_cart_snapshot";
 
-// ---------- Supabase ----------
-const SUPABASE_URL = "https://hkeauskaiaqhrfrzmapz.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_WF2-Ksp7qbP7EoKHGAd2Ow_27d4NIdv";
-const WAITLIST_TABLE = "waitlist";
+        const supabaseClient = window.supabase
+          ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+          : null;
 
-const supabaseClient = window.supabase
-  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
+        function toggleNav(forceOpen) {
+          const nav = document.querySelector("nav");
+          const btn = document.querySelector(".nav-toggle");
+          if (!nav || !btn) return;
 
-// ---------- Cart helpers ----------
-function toggleCart(forceOpen) {
-  const sidebar = document.getElementById("cartSidebar");
-  const overlay = document.getElementById("cartOverlay");
-  if (!sidebar || !overlay) return;
+          const isOpen = typeof forceOpen === "boolean" ? forceOpen : !nav.classList.contains("open");
+          nav.classList.toggle("open", isOpen);
+          btn.setAttribute("aria-expanded", String(isOpen));
+        }
 
-  if (typeof forceOpen === "boolean") {
-    sidebar.classList.toggle("open", forceOpen);
-    overlay.classList.toggle("active", forceOpen);
-    return;
-  }
-
-  sidebar.classList.toggle("open");
-  overlay.classList.toggle("active");
-}
-
-function checkout() {
-  if (cart.length === 0) return;
-
-  // close cart
-  toggleCart(false);
-
-  // scroll to waitlist
-  setTimeout(() => {
-    const waitlistSection = document.getElementById("waitlist");
-    waitlistSection?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, 250);
-}
-
-// optional: close on Escape
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    toggleCart(false);
-    document.getElementById("bundleModal")?.classList.remove("active");
-  }
-});
-
-
-        // Product Data (all 200ml)
-        const products = [
-          {
-            id: 1,
-            name: "Anijsmelk",
-            displayName: "Anijsmelk (Anise Seed Milk)",
-            icon: "🌿",
-            origin: "Netherlands",
-            description: "Warm milk gently infused with aromatic anise seeds.",
-            wellness: "Anise is loved for its calming aroma and gentle digestive comfort.",
-            price: 700,
-            image: "assets/anijsmelk1.PNG",
-            volume: "200ml"
-          },
-          {
-            id: 2,
-            name: "Classic Creamy Milk",
-            displayName: "Classic Creamy Milk",
-            icon: "🥛",
-            origin: "House Classic",
-            description: "Silky, slow-warmed milk with a rich, creamy finish. Simple, nostalgic, perfect with cookies.",
-            wellness: "Warm milk is a classic night ritual. Comforting, gentle, and the cleanest pairing for anything sweet.",
-            price: 700,
-            image: "assets/classic.png",
-            volume: "200ml"
-          },
-          {
-            id: 3,
-            name: "Cinnamon Milk",
-            displayName: "Cinnamon Milk",
-            icon: "🌙",
-            origin: "Global Comfort Tradition",
-            description: "Pure milk delicately spiced with Ceylon cinnamon sticks.",
-            wellness: "Cinnamon’s warm aroma has been a bedtime companion across cultures for generations.",
-            price: 700,
-            image: "assets/cinnamon.PNG",
-            volume: "200ml"
-          },
-          {
-            id: 4,
-            name: "Horchata-Style",
-            displayName: "Horchata-Style Milk",
-            icon: "🌾",
-            origin: "Mexico",
-            description: "Creamy rice-based milk kissed with cinnamon and vanilla bean.",
-            wellness: "Light yet indulgent, with a naturally sweet, aromatic finish.",
-            price: 700,
-            image: "assets/horchata.PNG",
-            volume: "200ml"
-          },
-          {
-            id: 5,
-            name: "Signature Cookie",
-            displayName: "Signature Chocolate Chip Cookie",
-            icon: "🍪",
-            origin: "Baked Fresh Daily",
-            description: "Soft, warm chocolate chip cookie with real butter and chocolate chunks.",
-            wellness: "Real ingredients, no shortcuts, just comfort in every bite.",
-            price: 150,
-            image: "assets/cookies.PNG"
+        function getStoredCartSnapshot() {
+          try {
+            const raw = localStorage.getItem(CART_SNAPSHOT_KEY);
+            if (!raw) return null;
+            return JSON.parse(raw);
+          } catch (err) {
+            console.warn("Unable to read cart snapshot.", err);
+            return null;
           }
-        ];
-      
-        // Load Products (THIS was missing)
-        function loadProducts() {
-          const grid = document.getElementById("productGrid");
-          if (!grid) return;
-      
-          grid.innerHTML = products
-            .map((product) => {
-              const isCookie = product.id === 5;
-      
-              return `
-                <div class="product-card">
-                  <div class="product-image">
-                    ${product.image
-                      ? `<img src="${product.image}" alt="${product.displayName}">`
-                      : `<span class="product-icon" style="font-size:110px;">${product.icon || "🥛"}</span>`
-                    }
-                  </div>
-      
-                  <div class="product-content">
-                    <h3>${product.displayName}</h3>
-                    <p class="product-origin">${product.origin}${product.volume ? " · " + product.volume : ""}</p>
-      
-                    <p class="product-description">${product.description}</p>
-      
-                    <div class="wellness-note">
-                      <strong></strong> ${product.wellness}
-                    </div>
-      
-                    <div class="product-price">₹${product.price}</div>
-
-      
-                    ${!isCookie ? `
-                      <div class="product-options">
-                        <label class="option-label">Temperature:</label>
-                        <div class="temp-selector">
-                          <button class="option-btn active" onclick="selectTemp(${product.id}, 'hot', this)">☀️ Hot</button>
-                          <button class="option-btn" onclick="selectTemp(${product.id}, 'cold', this)">❄️ Cold</button>
-                        </div>
-      
-                        <label class="option-label">Sweetness:</label>
-                        <div class="sweetness-selector">
-                          <button class="option-btn" onclick="selectSweetness(${product.id}, 'light', this)">Light</button>
-                          <button class="option-btn active" onclick="selectSweetness(${product.id}, 'regular', this)">Regular</button>
-                       
-                        </div>
-                      </div>
-                    ` : ""}
-      
-                    <button class="add-to-cart" onclick="addToCart(${product.id}, event)">Add to Cart</button>
-                  </div>
-                </div>
-              `;
-            })
-            .join("");
         }
-      
-        // Select Temperature
-        function selectTemp(productId, temp, btn) {
-          const group = btn.parentElement;
-          group.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-        }
-      
-        // Select Sweetness
-        function selectSweetness(productId, level, btn) {
-          const group = btn.parentElement;
-          group.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-        }
-      
-        // Cart notification
-        function showCartNotification() {
-          const notification = document.getElementById("cartNotification");
-          if (!notification) return;
-          notification.classList.add("show");
-          setTimeout(() => notification.classList.remove("show"), 2000);
-        }
-      
-        // Add to Cart
-        function addToCart(productId, event) {
-          const button = event?.target;
-          const product = products.find((p) => p.id === productId);
-          if (!product) return;
-      
-          let temp = "hot";
-          let sweetness = "regular";
-      
-          if (productId !== 5 && button) {
-            const card = button.closest(".product-card");
-            const tempBtn = card?.querySelector(".temp-selector .active");
-            const sweetBtn = card?.querySelector(".sweetness-selector .active");
-      
-            temp = tempBtn?.textContent?.includes("Hot") ? "hot" : "cold";
-            sweetness = (sweetBtn?.textContent || "regular").toLowerCase();
-          }
-      
-          cart.push({
-            ...product,
-            temp,
-            sweetness,
-            qty: 1,
-            cartId: Date.now()
-          });
-      
-          updateCart();
-      
-          if (button) {
-            button.classList.add("added");
-            setTimeout(() => button.classList.remove("added"), 300);
-          }
-      
-          showCartNotification();
-        }
-      
-        // Open Bundle Modal
-        function openBundleModal(name, milkCount, cookieCount, price) {
-  currentBundle = {
-    name,
-    milkCount,
-    cookieCount,
-    price,
-    selectedMilks: []
-  };
 
-  document.getElementById("bundleModalTitle").textContent = name;
-  document.getElementById("bundleModalPrice").textContent = formatINR(price);
-  document.getElementById("milkCount").textContent = `0/${milkCount}`;
-
-  const milkProducts = products.filter((p) => p.id !== 5);
-  const grid = document.getElementById("milkSelectionGrid");
-
-  grid.innerHTML = milkProducts.map((milk) => `
-  <div class="milk-select-card"
-       data-milk-id="${milk.id}"
-       onclick="toggleMilkSelection(${milk.id}, this)">
-    <div class="milk-select-icon">${milk.icon || "🥛"}</div>
-    <div class="milk-select-name">${milk.name}</div>
-  </div>
-`).join("");
-
-
-  document.getElementById("customizationOptions").innerHTML = "";
-  document.getElementById("milkError").style.display = "none";
-  document.getElementById("bundleModal").classList.add("active");
-}
-
-        // Toggle Milk Selection (single correct version)
-        function toggleMilkSelection(milkId, cardEl) {
-  const index = currentBundle.selectedMilks.findIndex((m) => m.id === milkId);
-
-  if (index > -1) {
-    currentBundle.selectedMilks.splice(index, 1);
-    cardEl.classList.remove("selected");
-  } else {
-    if (currentBundle.selectedMilks.length >= currentBundle.milkCount) {
-      document.getElementById("milkError").textContent =
-        `You can only select ${currentBundle.milkCount} milks for this bundle`;
-      document.getElementById("milkError").style.display = "block";
-      return;
-    }
-
-    const milk = products.find((p) => p.id === milkId);
-    currentBundle.selectedMilks.push({
-      id: milkId,
-      name: milk.name,
-      icon: milk.icon || "🥛",
-      temp: "hot",
-      sweetness: "regular",
-    });
-
-    cardEl.classList.add("selected");
-  }
-
-  document.getElementById("milkCount").textContent =
-    `${currentBundle.selectedMilks.length}/${currentBundle.milkCount}`;
-
-  document.getElementById("milkError").style.display = "none";
-  updateCustomizationOptions();
-}
-
-      
-        // Update Customization Options
-        function updateCustomizationOptions() {
-  const container = document.getElementById("customizationOptions");
-  if (!container) return;
-
-  if (currentBundle.selectedMilks.length === 0) {
-    container.innerHTML = "";
-    return;
-  }
-
-  container.innerHTML = currentBundle.selectedMilks
-    .map((milk, index) => `
-      <div class="bundle-customization">
-        <div class="customization-title">${milk.icon || "🥛"} ${milk.name}</div>
-
-        <label class="option-label" style="margin-top:10px;display:block;">Temperature:</label>
-        <div class="bundle-temp-selector">
-          <button class="option-btn ${milk.temp === "hot" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'temp', 'hot', this)">☀️ Hot</button>
-          <button class="option-btn ${milk.temp === "cold" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'temp', 'cold', this)">❄️ Cold</button>
-        </div>
-
-        <label class="option-label" style="margin-top:10px;display:block;">Sweetness:</label>
-        <div class="bundle-sweet-selector">
-          <button class="option-btn ${milk.sweetness === "light" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'sweetness', 'light', this)">Light</button>
-          <button class="option-btn ${milk.sweetness === "regular" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'sweetness', 'regular', this)">Regular</button>
-        </div>
-
-        <button class="edit-link" style="margin-top:10px;" onclick="removeMilkFromBundle(${index})">
-          remove this milk
-        </button>
-      </div>
-    `)
-    .join("");
-}
-
-// ---------- GLOBALS ----------
-let cart = [];
-let currentBundle = {
-  name: "",
-  milkCount: 0,
-  cookieCount: 0,
-  price: 0,
-  selectedMilks: [],
-};
-window.__editingBundleCartId = null;
-
-const DELIVERY_FEE = 80;
-
-function formatINR(amount) {
-  return `₹${Number(amount).toLocaleString("en-IN")}`;
-}
-
-function ensureQty(item) {
-  if (!item.qty || item.qty < 1) item.qty = 1;
-}
-
-// ---------- CART ----------
-function removeFromCart(cartId) {
-  cart = cart.filter((item) => item.cartId !== cartId);
-  updateCart();
-}
-
-function getCartSnapshot() {
-  if (!Array.isArray(cart)) return null;
-  const items = cart.map((item) => ({
-    id: item.id,
-    name: item.name || item.displayName || "",
-    displayName: item.displayName || item.name || "",
-    qty: item.qty || 1,
-    price: item.price || 0,
-    temp: item.temp || null,
-    sweetness: item.sweetness || null,
-    isBundle: !!item.isBundle,
-    bundleDetails: item.bundleDetails || null,
-  }));
-
-  const subtotal = cart.reduce(
-    (sum, item) => sum + (item.price || 0) * (item.qty || 1),
-    0
-  );
-  const delivery = subtotal > 0 ? DELIVERY_FEE : 0;
-  const total = subtotal + delivery;
-
-  return {
-    currency: "INR",
-    itemCount: items.reduce((sum, item) => sum + (item.qty || 1), 0),
-    subtotal,
-    delivery,
-    total,
-    items,
-    capturedAt: new Date().toISOString(),
-  };
-}
-
-function changeQty(cartId, delta) {
-  const item = cart.find((i) => i.cartId === cartId);
-  if (!item) return;
-
-  ensureQty(item);
-  item.qty += delta;
-
-  if (item.qty <= 0) {
-    removeFromCart(cartId);
-    return;
-  }
-  updateCart();
-}
-
-function setMilkOption(cartId, key, value) {
-  const item = cart.find((i) => i.cartId === cartId);
-  if (!item || item.isBundle) return;
-
-  item[key] = value;
-  updateCart();
-}
-
-function updateCart() {
-  const cartCount = document.getElementById("cartCount");
-  const cartItems = document.getElementById("cartItems");
-  const cartFooter = document.getElementById("cartFooter");
-  if (!cartCount || !cartItems || !cartFooter) return;
-
-  cart.forEach(ensureQty);
-
-  const totalItems = cart.reduce((sum, i) => sum + (i.qty || 1), 0);
-  cartCount.textContent = totalItems;
-
-  if (cart.length === 0) {
-    cartItems.innerHTML = `
-      <div class="empty-cart">
-        <p style="font-size:48px;margin-bottom:15px;">🥛</p>
-        <p>Your cart is empty</p>
-        <p style="font-size:14px;margin-top:10px;">Add some comfort to your night</p>
-      </div>
-    `;
-    cartFooter.style.display = "none";
-    return;
-  }
-
-  cartItems.innerHTML = cart
-    .map((item) => {
-      const title = `${item.icon || "📦"} ${item.displayName || item.name}`;
-
-      const details = !item.isBundle
-        ? `
-        <p class="cart-item-details">
-          ${(item.temp || "").charAt(0).toUpperCase() + (item.temp || "").slice(1)}
-          ${(item.sweetness
-            ? " · " + item.sweetness.charAt(0).toUpperCase() + item.sweetness.slice(1)
-            : "")}
-        </p>
-
-        <div class="mini-edit" style="margin-top:10px;">
-          <button class="mini-pill ${item.temp === "hot" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'temp', 'hot')">☀️ Hot</button>
-          <button class="mini-pill ${item.temp === "cold" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'temp', 'cold')">❄️ Cold</button>
-          <button class="mini-pill ${item.sweetness === "light" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'sweetness', 'light')">Light</button>
-          <button class="mini-pill ${item.sweetness === "regular" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'sweetness', 'regular')">Regular</button>
-        </div>
-      `
-        : `
-        <div class="cart-item-details">
-          ${(item.bundleDetails?.milks || [])
-            .map(
-              (m) => `<div style="margin:5px 0;font-size:12px;">
-              ${m.icon || "🥛"} ${m.name} - ${m.temp} · ${m.sweetness}
-            </div>`
-            )
-            .join("")}
-
-          <div style="margin-top:8px;font-size:12px;">
-            + ${item.bundleDetails?.cookies || 0} cookies 🍪
-          </div>
-
-          <button class="edit-link" style="margin-top:10px;" onclick="editBundleFromCart(${item.cartId})">
-            edit
-          </button>
-        </div>
-      `;
-
-      const itemTotal = (item.price || 0) * (item.qty || 1);
-
-      return `
-      <div class="cart-item">
-        <h4>${title}</h4>
-        ${details}
-
-        <div class="cart-controls">
-          <div class="qty-control">
-            <button class="qty-btn" onclick="changeQty(${item.cartId}, -1)">−</button>
-            <div class="qty-num">${item.qty || 1}</div>
-            <button class="qty-btn" onclick="changeQty(${item.cartId}, 1)">+</button>
-          </div>
-
-          <div class="cart-item-price" style="margin-top:0; flex:1;">
-            <span>${formatINR(itemTotal)}</span>
-            <button class="remove-item" onclick="removeFromCart(${item.cartId})">Remove</button>
-          </div>
-        </div>
-      </div>
-    `;
-    })
-    .join("");
-
-  const subtotal = cart.reduce((sum, item) => sum + item.price * (item.qty || 1), 0);
-  const delivery = subtotal > 0 ? DELIVERY_FEE : 0;
-  const total = subtotal + delivery;
-
-  cartFooter.innerHTML = `
-    <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px;">
-      <span>Subtotal</span>
-      <span>${formatINR(subtotal)}</span>
-    </div>
-
-    <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:12px;">
-      <span>Delivery</span>
-      <span>${formatINR(delivery)}</span>
-    </div>
-
-    <div class="cart-total">
-      <span>Total:</span>
-      <span>${formatINR(total)}</span>
-    </div>
-
-    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-  `;
-
-  cartFooter.style.display = "block";
-}
-
-window.updateCart = updateCart;
-
-// ---------- BUNDLE MODAL HELPERS ----------
-function removeMilkFromBundle(index) {
-  currentBundle.selectedMilks.splice(index, 1);
-
-  const countEl = document.getElementById("milkCount");
-  if (countEl) {
-    countEl.textContent = `${currentBundle.selectedMilks.length}/${currentBundle.milkCount}`;
-  }
-
-  document.querySelectorAll(".milk-select-card").forEach((card) => {
-    const milkId = Number(card.dataset.milkId);
-    const selected = currentBundle.selectedMilks.some((m) => m.id === milkId);
-    card.classList.toggle("selected", selected);
-  });
-
-  const err = document.getElementById("milkError");
-  if (err) err.style.display = "none";
-
-  updateCustomizationOptions();
-}
-
-function updateBundleMilk(index, property, value, btnEl) {
-  const milk = currentBundle.selectedMilks[index];
-  if (!milk) return;
-
-  milk[property] = value;
-
-  const group = btnEl?.parentElement;
-  if (!group) return;
-
-  group.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("active"));
-  btnEl.classList.add("active");
-}
-
-function closeBundleModal() {
-  document.getElementById("bundleModal")?.classList.remove("active");
-  window.__editingBundleCartId = null;
-
-  const btn = document.getElementById("addBundleBtn");
-  if (btn) btn.textContent = "Add to Cart";
-}
-window.closeBundleModal = closeBundleModal;
-
-function addCustomizedBundle() {
-  const err = document.getElementById("milkError");
-
-  if (currentBundle.selectedMilks.length !== currentBundle.milkCount) {
-    if (err) {
-      err.textContent = `Please select exactly ${currentBundle.milkCount} milks`;
-      err.style.display = "block";
-    }
-    return;
-  }
-
-  const bundleDetails = {
-    milks: currentBundle.selectedMilks.map((m) => ({
-      id: m.id,
-      name: m.name,
-      icon: m.icon || "🥛",
-      temp: m.temp || "hot",
-      sweetness: m.sweetness || "regular",
-    })),
-    cookies: currentBundle.cookieCount,
-  };
-
-  // EDIT EXISTING
-  if (window.__editingBundleCartId) {
-    const item = cart.find((i) => i.cartId === window.__editingBundleCartId);
-    if (item) {
-      item.bundleDetails = bundleDetails;
-      item.name = currentBundle.name;
-      item.price = currentBundle.price;
-    }
-
-    updateCart();
-    closeBundleModal();
-    showCartNotification();
-    return;
-  }
-
-  // ADD NEW
-  cart.push({
-    id: "bundle",
-    name: currentBundle.name,
-    price: currentBundle.price,
-    qty: 1,
-    cartId: Date.now(),
-    isBundle: true,
-    bundleDetails,
-  });
-
-  updateCart();
-  closeBundleModal();
-  showCartNotification();
-  setTimeout(() => toggleCart(true), 350);
-}
-
-// ---------- EDIT BUNDLE FROM CART ----------
-function editBundleFromCart(cartId) {
-  const item = cart.find((i) => i.cartId === cartId);
-  if (!item || !item.isBundle) return;
-
-  currentBundle = {
-    name: item.name,
-    milkCount: item.bundleDetails?.milks?.length || 0,
-    cookieCount: item.bundleDetails?.cookies || 0,
-    price: item.price,
-    selectedMilks: (item.bundleDetails?.milks || []).map((m) => ({
-      id: m.id,
-      name: m.name,
-      icon: m.icon || "🥛",
-      temp: m.temp || "hot",
-      sweetness: m.sweetness || "regular",
-    })),
-  };
-
-  window.__editingBundleCartId = cartId;
-
-  document.getElementById("bundleModalTitle").textContent = currentBundle.name;
-  document.getElementById("bundleModalPrice").textContent = formatINR(currentBundle.price);
-  document.getElementById("milkCount").textContent = `${currentBundle.selectedMilks.length}/${currentBundle.milkCount}`;
-
-  const milkProducts = products.filter((p) => p.id !== 5);
-  const grid = document.getElementById("milkSelectionGrid");
-
-  grid.innerHTML = milkProducts
-    .map((milk) => {
-      const selected = currentBundle.selectedMilks.some((m) => m.id === milk.id);
-      return `
-      <div class="milk-select-card ${selected ? "selected" : ""}"
-           data-milk-id="${milk.id}"
-           onclick="toggleMilkSelection(${milk.id}, this)">
-        <div class="milk-select-icon">${milk.icon || "🥛"}</div>
-        <div class="milk-select-name">${milk.name}</div>
-      </div>
-    `;
-    })
-    .join("");
-
-  const milkError = document.getElementById("milkError");
-  if (milkError) milkError.style.display = "none";
-
-  updateCustomizationOptions();
-
-  const btn = document.getElementById("addBundleBtn");
-  if (btn) btn.textContent = "Save Changes";
-
-  document.getElementById("bundleModal").classList.add("active");
-}
-window.editBundleFromCart = editBundleFromCart;
-
-      
-        // Waitlist form
         document.addEventListener("DOMContentLoaded", () => {
-          loadProducts();
-
           const shopDropdown = document.querySelector(".nav-dropdown");
           const shopLink = document.querySelector(".nav-dropdown .nav-link");
           if (shopDropdown && shopLink) {
@@ -2404,7 +2003,26 @@ window.editBundleFromCart = editBundleFromCart;
               }
             });
           }
-      
+
+          const navLinks = document.querySelectorAll(".nav-links a");
+          navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              if (link.closest(".dropdown-menu")) {
+                shopDropdown?.classList.remove("open");
+                toggleNav(false);
+                return;
+              }
+              if (link.closest(".nav-dropdown")) return;
+              toggleNav(false);
+            });
+          });
+
+          document.addEventListener("click", (e) => {
+            if (!e.target.closest("nav")) {
+              toggleNav(false);
+            }
+          });
+
           const waitlistForm = document.getElementById("waitlistForm");
           waitlistForm?.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -2418,7 +2036,7 @@ window.editBundleFromCart = editBundleFromCart;
             const email = document.getElementById("waitlistEmail")?.value?.trim() || "";
             const phone = document.getElementById("waitlistPhone")?.value?.trim() || "";
             const city = document.getElementById("waitlistCity")?.value?.trim() || "";
-            const cartSnapshot = getCartSnapshot();
+            const cartSnapshot = getStoredCartSnapshot();
 
             if (!supabaseClient) {
               if (errorEl) {
@@ -2447,25 +2065,16 @@ window.editBundleFromCart = editBundleFromCart;
 
             if (successEl) successEl.style.display = "block";
             waitlistForm.reset();
+            try {
+              localStorage.removeItem(CART_SNAPSHOT_KEY);
+            } catch (err) {
+              console.warn("Unable to clear cart snapshot.", err);
+            }
             setTimeout(() => {
               if (successEl) successEl.style.display = "none";
             }, 5000);
           });
-      
-          // Smooth scroll
-          document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-            anchor.addEventListener("click", function (e) {
-              e.preventDefault();
-              const target = document.querySelector(this.getAttribute("href"));
-              target?.scrollIntoView({ behavior: "smooth", block: "start" });
-            });
-          });
         });
-
-        console.log("JS loaded");
-
-      </script>
-      
-    
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> AfterHours - milk & cookies</title>
+    <title>AfterHours - Our Story</title>
     <style>
         * {
             margin: 0;
@@ -1862,14 +1862,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+    
     </style>
 </head>
 <body>
-    <!-- Cart Notification -->
-    <div class="cart-notification" id="cartNotification">
-        ✓ Added to cart!
-    </div>
-
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -1881,1092 +1877,124 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-dropdown">
-                    <a href="#shop" class="nav-link">Shop</a>
+                    <a href="moonlight-sips-shop.html#shop" class="nav-link">Shop</a>
                     <div class="dropdown-menu" aria-label="Shop">
-                        <a href="#individuals">Milks</a>
-                        <a href="#cookie">Signature cookie</a>
-                        <a href="#bundles">Comfort bundles</a>
+                        <a href="moonlight-sips-shop.html#individuals">Milks</a>
+                        <a href="moonlight-sips-shop.html#cookie">Signature cookie</a>
+                        <a href="moonlight-sips-shop.html#bundles">Comfort bundles</a>
                     </div>
                 </li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="moonlight-sips-shop.html#reviews">Reviews</a></li>
                 <li><a href="waitlist.html">Waitlist</a></li>
-                <li>
-                    <div class="cart-icon" onclick="toggleCart()">
-                        🛒
-                        <span class="cart-count" id="cartCount">0</span>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-layout">
-            <div class="hero-content">
-                <h1>late nights shouldn’t feel empty</h1>
-                <p>when everything is closed and your mind is still on, comfort is hard to find. we bring warm milk and cookies to your door, right when you need them.</p>
-                <div class="hero-problem">
-                    <span>the problem:</span> midnight cravings, nowhere to go.<br>
-                    <span>the fix:</span> soft, warm comfort delivered.
+    <!-- Our Story -->
+    <section class="origin-story" id="about">
+        <div class="container">
+            <div class="origin-grid">
+                <div class="origin-copy">
+                    <span class="eyebrow">our story</span>
+                    <h2>milk traditions, digitally connected - all routes lead to india</h2>
+                    <p>AfterHours is for late-night thinkers, creators, students, and anyone unwinding when the world goes quiet. It’s comfort for the hours that don’t fit a 9-to-5 schedule.</p>
+                    <p>We bring warm milk traditions from around the world, from Dutch anijsmelk to Indian kesar badam, and deliver them fresh with cookies made for dipping.</p>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#shop" class="btn-primary">order now</a>
+
+                <div class="origin-map" aria-hidden="true">
+                    <div class="map-sheen"></div>
+                    <svg class="map-svg" viewBox="0 0 900 420" role="img">
+                    <defs>
+                        <marker id="mapArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M0 0 L10 5 L0 10 Z" fill="rgba(90, 82, 69, 0.6)"></path>
+                        </marker>
+                    </defs>
+                    <g class="map-land">
+                        <!-- Mexico -->
+                        <path d="M95 165 L130 140 L175 140 L215 160 L235 185 L220 205 L190 215 L175 235 L150 230 L140 210 L120 205 L100 190 Z"></path>
+                        <!-- Netherlands -->
+                        <path d="M455 118 L470 108 L490 112 L500 128 L492 142 L470 142 L455 132 Z"></path>
+                        <!-- India -->
+                        <path d="M560 175 L605 155 L655 165 L695 210 L685 250 L655 285 L610 295 L575 270 L545 225 Z"></path>
+                        <!-- Sri Lanka -->
+                        <path d="M735 320 L752 316 L768 328 L762 346 L742 350 L730 336 Z"></path>
+                    </g>
+
+                    <g class="map-arcs">
+                        <path class="map-arc" d="M150 190 Q340 60 600 220" marker-end="url(#mapArrow)"></path>
+                        <path class="map-arc" d="M470 130 Q550 150 600 220" marker-end="url(#mapArrow)"></path>
+                        <path class="map-arc" d="M740 320 Q690 270 600 220" marker-end="url(#mapArrow)"></path>
+                    </g>
+
+                    <g class="map-nodes">
+                        <circle class="map-node" cx="150" cy="190" r="6"></circle>
+                        <text class="map-label" x="95" y="220">
+                            <tspan x="95" dy="0">Mexico</tspan>
+                            <tspan x="95" dy="16">Horchata</tspan>
+                        </text>
+
+                        <circle class="map-node" cx="470" cy="130" r="6"></circle>
+                        <text class="map-label" x="390" y="110">
+                            <tspan x="390" dy="0">Netherlands</tspan>
+                            <tspan x="390" dy="16">Anijsmelk</tspan>
+                        </text>
+
+                        <circle class="map-node" cx="740" cy="320" r="6"></circle>
+                        <text class="map-label" x="655" y="345">
+                            <tspan x="655" dy="0">Sri Lanka</tspan>
+                            <tspan x="655" dy="16">Ceylon Cinnamon</tspan>
+                        </text>
+
+                        <circle class="map-node destination" cx="600" cy="220" r="8"></circle>
+                        <circle class="map-pulse" cx="600" cy="220" r="16"></circle>
+                        <text class="map-label destination-label" x="610" y="245">
+                            <tspan x="610" dy="0">India</tspan>
+                            <tspan x="610" dy="16">Home Base</tspan>
+                        </text>
+                    </g>
+                </svg>
+
+                    <div class="map-legend">
+                        <span class="legend-dot"></span>
+                        origins mapped · signals linked · delivered to india
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <video src="assets/videodipping.mp4" autoplay muted loop playsinline></video>
-            </div>
         </div>
     </section>
-
-    <!-- Featured Products Section -->
-    <section class="featured" id="shop">
-        <div class="container">
-            <div class="shop-header">
-                <h2>shop</h2>
-                <p class="section-subtitle">shop the collection: milks, cookies, and comfort bundles</p>
-            </div>
-
-            <div class="milk-header" id="individuals">
-                <h3 class="shop-subtitle">milks</h3>
-                <p class="section-subtitle compact">four signature milks, hot or cold · choose sweetness per cup</p>
-            </div>
-            
-            <div class="milk-grid" id="milkGrid">
-                <!-- Milks will be dynamically loaded -->
-            </div>
-
-            <h3 id="cookie" class="shop-subtitle">signature cookie</h3>
-            <p class="section-subtitle compact">baked fresh daily · best with a warm pour</p>
-            <div class="cookie-spotlight" id="cookieSpotlight"></div>
-        </div>
-    </section>
-
-    <section class="bundles" id="bundles">
-        <div class="container">
-          <h2>comfort bundles</h2>
-          <p class="section-subtitle">curated sets for every late-night ritual</p>
-      
-          <div class="bundle-grid">
-      
-            <div class="bundle-card">
-              <span class="bundle-badge">SAVE ₹300</span>
-              <h3>Moonlight Duo</h3>
-              <ul class="bundle-items">
-                <li>2 milks of your choice (hot or cold)</li>
-                <li>2 signature chocolate chip cookies</li>
-              </ul>
-              <div class="bundle-price">₹1700 <span>₹2000</span></div>
-              <button class="add-to-cart" onclick="openBundleModal('Moonlight Duo', 2, 2, 1700)">Customize Bundle</button>
-              <p class="bundle-note">perfect for sharing or savoring slowly</p>
-            </div>
-      
-            <div class="bundle-card">
-              <span class="bundle-badge">SAVE ₹600</span>
-              <h3>Night Owl Trio</h3>
-              <ul class="bundle-items">
-                <li>3 milks (mix hot & cold)</li>
-                <li>4 cookies</li>
-              </ul>
-              <div class="bundle-price">₹2700 <span>₹3300</span></div>
-              <button class="add-to-cart" onclick="openBundleModal('Night Owl Trio', 3, 4, 2700)">Customize Bundle</button>
-              <p class="bundle-note">fuel for long nights of focus</p>
-            </div>
-      
-            
-      
-          </div>
-        </div>
-      </section>
-
-    <!-- Reviews -->
-    <section class="reviews" id="reviews">
-        <div class="container">
-            <h2>reviews</h2>
-            <p class="section-subtitle">notes from friends + family who tried the late-night drop</p>
-
-            <div class="reviews-grid">
-                <article class="review-card with-image">
-                    <div class="review-image">
-                        <img src="assets/review1.JPG" alt="Classic Creamy Milk with cookies on a tray">
-                    </div>
-                    <div class="review-card-body">
-                        <div class="review-header">
-                            <div>
-                                <div class="review-product">classic creamy milk + cookies</div>
-                                <div class="review-meta">friend · late-night order</div>
-                            </div>
-                            <div class="review-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        </div>
-                        <p class="review-body">So yummy, just what I craved at night. The milk was still warm when it got here and the cookie was soft in the center.</p>
-                        <div class="reviewer">Riya — friend</div>
-                    </div>
-                </article>
-
-                <article class="review-card with-image">
-                    <div class="review-image">
-                        <img src="assets/review2.JPG" alt="Classic Creamy Milk and cookies close-up">
-                    </div>
-                    <div class="review-card-body">
-                        <div class="review-header">
-                            <div>
-                                <div class="review-product">classic creamy milk + cookies</div>
-                                <div class="review-meta">family · weekend treat</div>
-                            </div>
-                            <div class="review-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        </div>
-                        <p class="review-body">Felt like a warm hug after a long day. Not too sweet, and the cookie had that buttery, fresh-baked smell.</p>
-                        <div class="reviewer">Auntie Meera — family</div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="reviews-grid" style="margin-top: 30px;">
-                <article class="review-card">
-                    <div class="review-header">
-                        <div>
-                            <div class="review-product">anijsmelk</div>
-                            <div class="review-meta">friend · cold</div>
-                        </div>
-                        <div class="review-stars" aria-label="Rated 4 out of 5">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                    </div>
-                    <p class="review-body">Tastes like a lighter chai without the tea. I kept it cold while studying and it was super calming.</p>
-                    <div class="reviewer">Neha — friend</div>
-                </article>
-
-                <article class="review-card">
-                    <div class="review-header">
-                        <div>
-                            <div class="review-product">cinnamon milk</div>
-                            <div class="review-meta">family · hot</div>
-                        </div>
-                        <div class="review-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    </div>
-                    <p class="review-body">Not overly sweet, the cinnamon is gentle and cozy. I finished the cup way too fast.</p>
-                    <div class="reviewer">Dad — family</div>
-                </article>
-
-                <article class="review-card">
-                    <div class="review-header">
-                        <div>
-                            <div class="review-product">horchata-style milk</div>
-                            <div class="review-meta">friend · light sweetness</div>
-                        </div>
-                        <div class="review-stars" aria-label="Rated 4 out of 5">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                    </div>
-                    <p class="review-body">Creamy and a little nutty. Light sweetness was perfect — reminded me of a café drink but softer.</p>
-                    <div class="reviewer">Aarav — friend</div>
-                </article>
-
-                <article class="review-card">
-                    <div class="review-header">
-                        <div>
-                            <div class="review-product">signature cookie</div>
-                            <div class="review-meta">family · late-night snack</div>
-                        </div>
-                        <div class="review-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    </div>
-                    <p class="review-body">Crispy edges, gooey center, still warm even after delivery. I ordered two more.</p>
-                    <div class="reviewer">Mom — family</div>
-                </article>
-            </div>
-        </div>
-    </section>
-
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="logo" style="margin-bottom: 25px; font-size: 22px;">afterhours </div>
             <p style="margin-bottom: 20px; font-weight: 300; opacity: 0.8;">late-night milk & cookies delivery at your doorstep</p>
-            
+
             <div class="footer-links">
-                <a href="#shop">Shop</a>
-                <a href="#bundles">Bundles</a>
+                <a href="moonlight-sips-shop.html#shop">Shop</a>
+                <a href="moonlight-sips-shop.html#bundles">Bundles</a>
                 <a href="about.html">About</a>
                 <a href="waitlist.html">Waitlist</a>
                 <a href="https://www.instagram.com/that.afterhours" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="#">Contact</a>
             </div>
-            
+
             <p style="margin-top: 45px; opacity: 0.5; font-size: 13px; font-weight: 300;">© 2026 afterhours · for quiet nights</p>
         </div>
     </footer>
 
-    
-
-    <!-- Cart Sidebar -->
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Your Cart</h3>
-            <button class="close-cart" onclick="toggleCart()">×</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="empty-cart">
-                <p style="font-size: 48px; margin-bottom: 15px;">🥛</p>
-                <p>Your cart is empty</p>
-                <p style="font-size: 14px; margin-top: 10px;">Add some comfort to your night</p>
-            </div>
-        </div>
-        <div class="cart-footer" id="cartFooter" style="display: none;">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">$0</span>
-            </div>
-            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-        </div>
-    </div>
-
-    <!-- Bundle Customization Modal -->
-    <div class="bundle-modal" id="bundleModal">
-        <div class="bundle-modal-content">
-            <div class="bundle-modal-header">
-                <h3 id="bundleModalTitle"></h3>
-                <button class="close-modal" onclick="closeBundleModal()">×</button>
-            </div>
-            
-            <div class="bundle-selection">
-                <h4>Choose Your Milks <span class="selected-count" id="milkCount">0/0</span></h4>
-                <div class="milk-selection-grid" id="milkSelectionGrid"></div>
-                <div class="selection-error" id="milkError" style="display: none;"></div>
-            </div>
-
-            <div id="customizationOptions"></div>
-
-            <div class="bundle-modal-footer">
-                <div class="bundle-total" id="bundleModalPrice"></div>
-                <button class="add-bundle-btn" id="addBundleBtn" onclick="addCustomizedBundle()">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        function toggleNav(forceOpen) {
+          const nav = document.querySelector("nav");
+          const btn = document.querySelector(".nav-toggle");
+          if (!nav || !btn) return;
 
-// ---------- Supabase ----------
-const SUPABASE_URL = "https://hkeauskaiaqhrfrzmapz.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_WF2-Ksp7qbP7EoKHGAd2Ow_27d4NIdv";
-const WAITLIST_TABLE = "waitlist";
-
-const supabaseClient = window.supabase
-  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
-
-function toggleNav(forceOpen) {
-  const nav = document.querySelector("nav");
-  const btn = document.querySelector(".nav-toggle");
-  if (!nav || !btn) return;
-
-  const isOpen = typeof forceOpen === "boolean" ? forceOpen : !nav.classList.contains("open");
-  nav.classList.toggle("open", isOpen);
-  btn.setAttribute("aria-expanded", String(isOpen));
-}
-
-// ---------- Cart helpers ----------
-function toggleCart(forceOpen) {
-  const sidebar = document.getElementById("cartSidebar");
-  const overlay = document.getElementById("cartOverlay");
-  if (!sidebar || !overlay) return;
-
-  if (typeof forceOpen === "boolean") {
-    sidebar.classList.toggle("open", forceOpen);
-    overlay.classList.toggle("active", forceOpen);
-    return;
-  }
-
-  sidebar.classList.toggle("open");
-  overlay.classList.toggle("active");
-}
-
-function checkout() {
-  if (cart.length === 0) return;
-
-  // close cart
-  toggleCart(false);
-
-  const cartSnapshot = getCartSnapshot();
-  if (cartSnapshot) {
-    try {
-      localStorage.setItem("afterhours_cart_snapshot", JSON.stringify(cartSnapshot));
-    } catch (err) {
-      console.warn("Unable to store cart snapshot.", err);
-    }
-  }
-
-  setTimeout(() => {
-    window.location.href = "waitlist.html";
-  }, 200);
-}
-
-// optional: close on Escape
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    toggleCart(false);
-    document.getElementById("bundleModal")?.classList.remove("active");
-  }
-});
-
-
-        // Product Data (all 200ml)
-        const products = [
-          {
-            id: 1,
-            name: "Anijsmelk",
-            displayName: "Anijsmelk (Anise Seed Milk)",
-            icon: "🌿",
-            origin: "Netherlands",
-            description: "Warm milk gently infused with aromatic anise seeds.",
-            wellness: "Anise is loved for its calming aroma and gentle digestive comfort.",
-            price: 700,
-            image: "assets/anijsmelk1.PNG",
-            volume: "200ml"
-          },
-          {
-            id: 2,
-            name: "Classic Creamy Milk",
-            displayName: "Classic Creamy Milk",
-            icon: "🥛",
-            origin: "House Classic",
-            description: "Silky, slow-warmed milk with a rich, creamy finish. Simple, nostalgic, perfect with cookies.",
-            wellness: "Warm milk is a classic night ritual. Comforting, gentle, and the cleanest pairing for anything sweet.",
-            price: 700,
-            image: "assets/classic.png",
-            volume: "200ml"
-          },
-          {
-            id: 3,
-            name: "Cinnamon Milk",
-            displayName: "Cinnamon Milk",
-            icon: "🌙",
-            origin: "Global Comfort Tradition",
-            description: "Pure milk delicately spiced with Ceylon cinnamon sticks.",
-            wellness: "Cinnamon’s warm aroma has been a bedtime companion across cultures for generations.",
-            price: 700,
-            image: "assets/cinnamon.PNG",
-            volume: "200ml"
-          },
-          {
-            id: 4,
-            name: "Horchata-Style",
-            displayName: "Horchata-Style Milk",
-            icon: "🌾",
-            origin: "Mexico",
-            description: "Creamy rice-based milk kissed with cinnamon and vanilla bean.",
-            wellness: "Light yet indulgent, with a naturally sweet, aromatic finish.",
-            price: 700,
-            image: "assets/horchata.PNG",
-            volume: "200ml"
-          },
-          {
-            id: 5,
-            name: "Signature Cookie",
-            displayName: "Signature Chocolate Chip Cookie",
-            icon: "🍪",
-            origin: "Baked Fresh Daily",
-            description: "Soft, warm chocolate chip cookie with real butter and chocolate chunks.",
-            wellness: "Real ingredients, no shortcuts, just comfort in every bite.",
-            price: 150,
-            image: "assets/cookies.PNG"
-          }
-        ];
-
-        const defaultMilkOptions = {
-          temp: "hot",
-          sweetness: "regular",
-        };
-
-        function capitalizeWord(value) {
-          if (!value) return "";
-          return value.charAt(0).toUpperCase() + value.slice(1);
+          const isOpen = typeof forceOpen === "boolean" ? forceOpen : !nav.classList.contains("open");
+          nav.classList.toggle("open", isOpen);
+          btn.setAttribute("aria-expanded", String(isOpen));
         }
 
-        function formatChoice(temp, sweetness) {
-          return `${capitalizeWord(temp)} · ${capitalizeWord(sweetness)}`;
-        }
-
-        function updateMilkChoice(card) {
-          const choice = card?.querySelector(".milk-choice");
-          if (!choice) return;
-          const temp = card.dataset.temp || defaultMilkOptions.temp;
-          const sweetness = card.dataset.sweetness || defaultMilkOptions.sweetness;
-          choice.textContent = formatChoice(temp, sweetness);
-        }
-
-        function toggleMilkOptions(productId, buttonEl) {
-          const card = document.querySelector(`.product-card[data-product-id="${productId}"]`);
-          if (!card) return;
-
-          const willOpen = !card.classList.contains("options-open");
-          document.querySelectorAll(".product-card.options-open").forEach((openCard) => {
-            if (openCard !== card) {
-              openCard.classList.remove("options-open");
-              const btn = openCard.querySelector(".option-toggle");
-              if (btn) {
-                btn.textContent = "Choose options";
-                btn.setAttribute("aria-expanded", "false");
-              }
-            }
-          });
-
-          card.classList.toggle("options-open", willOpen);
-          if (buttonEl) {
-            buttonEl.textContent = willOpen ? "Done" : "Choose options";
-            buttonEl.setAttribute("aria-expanded", String(willOpen));
-          }
-
-          if (willOpen) {
-            updateMilkChoice(card);
-          }
-        }
-
-        // Load Products (THIS was missing)
-        function loadProducts() {
-          const milkGrid = document.getElementById("milkGrid");
-          const cookieSpotlight = document.getElementById("cookieSpotlight");
-          if (!milkGrid || !cookieSpotlight) return;
-
-          const milks = products.filter((product) => product.id !== 5);
-          const cookie = products.find((product) => product.id === 5);
-
-          milkGrid.innerHTML = milks
-            .map((product) => {
-              const defaultTemp = defaultMilkOptions.temp;
-              const defaultSweetness = defaultMilkOptions.sweetness;
-
-              return `
-                <div class="product-card milk-card" data-product-id="${product.id}" data-temp="${defaultTemp}" data-sweetness="${defaultSweetness}">
-                  <div class="product-image">
-                    ${product.image
-                      ? `<img src="${product.image}" alt="${product.displayName}">`
-                      : `<span class="product-icon" style="font-size:90px;">${product.icon || "🥛"}</span>`
-                    }
-                  </div>
-
-                  <div class="product-content">
-                    <div>
-                      <h3>${product.displayName}</h3>
-                      <p class="product-origin">${product.origin}${product.volume ? " · " + product.volume : ""}</p>
-                    </div>
-
-                    <div class="milk-meta">
-                      <div class="product-price">₹${product.price}</div>
-                      <div class="milk-choice">${formatChoice(defaultTemp, defaultSweetness)}</div>
-                    </div>
-
-                    <button class="option-toggle" type="button" aria-expanded="false" onclick="toggleMilkOptions(${product.id}, this)">Choose options</button>
-
-                    <div class="product-options">
-                      <div class="option-row">
-                        <span class="option-label">temp</span>
-                        <div class="temp-selector">
-                          <button class="option-btn active" data-value="hot" onclick="selectTemp(${product.id}, 'hot', this)">☀️ Hot</button>
-                          <button class="option-btn" data-value="cold" onclick="selectTemp(${product.id}, 'cold', this)">❄️ Cold</button>
-                        </div>
-                      </div>
-
-                      <div class="option-row">
-                        <span class="option-label">sweet</span>
-                        <div class="sweetness-selector">
-                          <button class="option-btn" data-value="light" onclick="selectSweetness(${product.id}, 'light', this)">Light</button>
-                          <button class="option-btn active" data-value="regular" onclick="selectSweetness(${product.id}, 'regular', this)">Regular</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <button class="add-to-cart milk-add" onclick="addToCart(${product.id}, event)">Add to Cart</button>
-                  </div>
-                </div>
-              `;
-            })
-            .join("");
-
-          if (cookie) {
-            cookieSpotlight.innerHTML = `
-              <div class="cookie-image">
-                ${cookie.image
-                  ? `<img src="${cookie.image}" alt="${cookie.displayName}">`
-                  : `<span class="product-icon" style="font-size:120px;">${cookie.icon || "🍪"}</span>`
-                }
-              </div>
-              <div class="cookie-content">
-                <span class="cookie-tag">signature cookie</span>
-                <h3>${cookie.displayName}</h3>
-                <p class="cookie-desc">${cookie.description}</p>
-                <div class="product-price">₹${cookie.price}</div>
-                <button class="add-to-cart" onclick="addToCart(${cookie.id}, event)">Add to Cart</button>
-              </div>
-            `;
-          }
-        }
-      
-        // Select Temperature
-        function selectTemp(productId, temp, btn) {
-          const group = btn.parentElement;
-          const card = btn.closest(".product-card");
-          group.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          if (card) {
-            card.dataset.temp = temp;
-            updateMilkChoice(card);
-          }
-        }
-      
-        // Select Sweetness
-        function selectSweetness(productId, level, btn) {
-          const group = btn.parentElement;
-          const card = btn.closest(".product-card");
-          group.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          if (card) {
-            card.dataset.sweetness = level;
-            updateMilkChoice(card);
-          }
-        }
-      
-        // Cart notification
-        function showCartNotification() {
-          const notification = document.getElementById("cartNotification");
-          if (!notification) return;
-          notification.classList.add("show");
-          setTimeout(() => notification.classList.remove("show"), 2000);
-        }
-      
-        // Add to Cart
-        function addToCart(productId, event) {
-          const button = event?.target;
-          const product = products.find((p) => p.id === productId);
-          if (!product) return;
-      
-          let temp = "hot";
-          let sweetness = "regular";
-          const card = button?.closest(".product-card");
-      
-          if (productId !== 5 && card) {
-            temp = card?.dataset.temp || defaultMilkOptions.temp;
-            sweetness = card?.dataset.sweetness || defaultMilkOptions.sweetness;
-          } else if (productId === 5) {
-            temp = null;
-            sweetness = null;
-          }
-      
-          cart.push({
-            ...product,
-            temp,
-            sweetness,
-            qty: 1,
-            cartId: Date.now()
-          });
-      
-          updateCart();
-
-          if (card?.classList.contains("options-open")) {
-            card.classList.remove("options-open");
-            const toggle = card.querySelector(".option-toggle");
-            if (toggle) {
-              toggle.textContent = "Choose options";
-              toggle.setAttribute("aria-expanded", "false");
-            }
-          }
-
-          if (button) {
-            button.classList.add("added");
-            setTimeout(() => button.classList.remove("added"), 300);
-          }
-      
-          showCartNotification();
-        }
-      
-        // Open Bundle Modal
-        function openBundleModal(name, milkCount, cookieCount, price) {
-  currentBundle = {
-    name,
-    milkCount,
-    cookieCount,
-    price,
-    selectedMilks: []
-  };
-
-  document.getElementById("bundleModalTitle").textContent = name;
-  document.getElementById("bundleModalPrice").textContent = formatINR(price);
-  document.getElementById("milkCount").textContent = `0/${milkCount}`;
-
-  const milkProducts = products.filter((p) => p.id !== 5);
-  const grid = document.getElementById("milkSelectionGrid");
-
-  grid.innerHTML = milkProducts.map((milk) => `
-  <div class="milk-select-card"
-       data-milk-id="${milk.id}"
-       onclick="toggleMilkSelection(${milk.id}, this)">
-    <div class="milk-select-icon">${milk.icon || "🥛"}</div>
-    <div class="milk-select-name">${milk.name}</div>
-  </div>
-`).join("");
-
-
-  document.getElementById("customizationOptions").innerHTML = "";
-  document.getElementById("milkError").style.display = "none";
-  document.getElementById("bundleModal").classList.add("active");
-}
-
-        // Toggle Milk Selection (single correct version)
-        function toggleMilkSelection(milkId, cardEl) {
-  const index = currentBundle.selectedMilks.findIndex((m) => m.id === milkId);
-
-  if (index > -1) {
-    currentBundle.selectedMilks.splice(index, 1);
-    cardEl.classList.remove("selected");
-  } else {
-    if (currentBundle.selectedMilks.length >= currentBundle.milkCount) {
-      document.getElementById("milkError").textContent =
-        `You can only select ${currentBundle.milkCount} milks for this bundle`;
-      document.getElementById("milkError").style.display = "block";
-      return;
-    }
-
-    const milk = products.find((p) => p.id === milkId);
-    currentBundle.selectedMilks.push({
-      id: milkId,
-      name: milk.name,
-      icon: milk.icon || "🥛",
-      temp: "hot",
-      sweetness: "regular",
-    });
-
-    cardEl.classList.add("selected");
-  }
-
-  document.getElementById("milkCount").textContent =
-    `${currentBundle.selectedMilks.length}/${currentBundle.milkCount}`;
-
-  document.getElementById("milkError").style.display = "none";
-  updateCustomizationOptions();
-}
-
-      
-        // Update Customization Options
-        function updateCustomizationOptions() {
-  const container = document.getElementById("customizationOptions");
-  if (!container) return;
-
-  if (currentBundle.selectedMilks.length === 0) {
-    container.innerHTML = "";
-    return;
-  }
-
-  container.innerHTML = currentBundle.selectedMilks
-    .map((milk, index) => `
-      <div class="bundle-customization">
-        <div class="customization-title">${milk.icon || "🥛"} ${milk.name}</div>
-
-        <label class="option-label" style="margin-top:10px;display:block;">Temperature:</label>
-        <div class="bundle-temp-selector">
-          <button class="option-btn ${milk.temp === "hot" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'temp', 'hot', this)">☀️ Hot</button>
-          <button class="option-btn ${milk.temp === "cold" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'temp', 'cold', this)">❄️ Cold</button>
-        </div>
-
-        <label class="option-label" style="margin-top:10px;display:block;">Sweetness:</label>
-        <div class="bundle-sweet-selector">
-          <button class="option-btn ${milk.sweetness === "light" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'sweetness', 'light', this)">Light</button>
-          <button class="option-btn ${milk.sweetness === "regular" ? "active" : ""}"
-            onclick="updateBundleMilk(${index}, 'sweetness', 'regular', this)">Regular</button>
-        </div>
-
-        <button class="edit-link" style="margin-top:10px;" onclick="removeMilkFromBundle(${index})">
-          remove this milk
-        </button>
-      </div>
-    `)
-    .join("");
-}
-
-// ---------- GLOBALS ----------
-let cart = [];
-let currentBundle = {
-  name: "",
-  milkCount: 0,
-  cookieCount: 0,
-  price: 0,
-  selectedMilks: [],
-};
-window.__editingBundleCartId = null;
-
-const DELIVERY_FEE = 80;
-const FREE_DELIVERY_THRESHOLD = 2000;
-
-function formatINR(amount) {
-  return `₹${Number(amount).toLocaleString("en-IN")}`;
-}
-
-function ensureQty(item) {
-  if (!item.qty || item.qty < 1) item.qty = 1;
-}
-
-// ---------- CART ----------
-function removeFromCart(cartId) {
-  cart = cart.filter((item) => item.cartId !== cartId);
-  updateCart();
-}
-
-function getCartSnapshot() {
-  if (!Array.isArray(cart)) return null;
-  const items = cart.map((item) => ({
-    id: item.id,
-    name: item.name || item.displayName || "",
-    displayName: item.displayName || item.name || "",
-    qty: item.qty || 1,
-    price: item.price || 0,
-    temp: item.temp || null,
-    sweetness: item.sweetness || null,
-    isBundle: !!item.isBundle,
-    bundleDetails: item.bundleDetails || null,
-  }));
-
-  const subtotal = cart.reduce(
-    (sum, item) => sum + (item.price || 0) * (item.qty || 1),
-    0
-  );
-  const delivery = subtotal >= FREE_DELIVERY_THRESHOLD
-    ? 0
-    : subtotal > 0
-      ? DELIVERY_FEE
-      : 0;
-  const total = subtotal + delivery;
-
-  return {
-    currency: "INR",
-    itemCount: items.reduce((sum, item) => sum + (item.qty || 1), 0),
-    subtotal,
-    delivery,
-    total,
-    items,
-    capturedAt: new Date().toISOString(),
-  };
-}
-
-function changeQty(cartId, delta) {
-  const item = cart.find((i) => i.cartId === cartId);
-  if (!item) return;
-
-  ensureQty(item);
-  item.qty += delta;
-
-  if (item.qty <= 0) {
-    removeFromCart(cartId);
-    return;
-  }
-  updateCart();
-}
-
-function setMilkOption(cartId, key, value) {
-  const item = cart.find((i) => i.cartId === cartId);
-  if (!item || item.isBundle || item.id === 5) return;
-
-  item[key] = value;
-  updateCart();
-}
-
-function toggleCartItemEdit(cartId) {
-  const item = cart.find((i) => i.cartId === cartId);
-  if (!item || item.isBundle || item.id === 5) return;
-  item.isEditing = !item.isEditing;
-  updateCart();
-}
-
-function updateCart() {
-  const cartCount = document.getElementById("cartCount");
-  const cartItems = document.getElementById("cartItems");
-  const cartFooter = document.getElementById("cartFooter");
-  if (!cartCount || !cartItems || !cartFooter) return;
-
-  cart.forEach(ensureQty);
-
-  const totalItems = cart.reduce((sum, i) => sum + (i.qty || 1), 0);
-  cartCount.textContent = totalItems;
-
-  if (cart.length === 0) {
-    cartItems.innerHTML = `
-      <div class="empty-cart">
-        <p style="font-size:48px;margin-bottom:15px;">🥛</p>
-        <p>Your cart is empty</p>
-        <p style="font-size:14px;margin-top:10px;">Add some comfort to your night</p>
-      </div>
-    `;
-    cartFooter.style.display = "none";
-    return;
-  }
-
-  cartItems.innerHTML = cart
-    .map((item) => {
-      const title = `${item.icon || "📦"} ${item.displayName || item.name}`;
-      const isCookie = item.id === 5;
-
-      const details = !item.isBundle
-        ? isCookie
-          ? ``
-          : `
-        <p class="cart-item-details">
-          ${(item.temp || "").charAt(0).toUpperCase() + (item.temp || "").slice(1)}
-          ${(item.sweetness
-            ? " · " + item.sweetness.charAt(0).toUpperCase() + item.sweetness.slice(1)
-            : "")}
-        </p>
-
-        <button class="edit-link" style="margin-top:8px;" onclick="toggleCartItemEdit(${item.cartId})">
-          ${item.isEditing ? "done" : "edit"}
-        </button>
-
-        ${item.isEditing ? `
-        <div class="mini-edit" style="margin-top:10px;">
-          <button class="mini-pill ${item.temp === "hot" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'temp', 'hot')">☀️ Hot</button>
-          <button class="mini-pill ${item.temp === "cold" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'temp', 'cold')">❄️ Cold</button>
-          <button class="mini-pill ${item.sweetness === "light" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'sweetness', 'light')">Light</button>
-          <button class="mini-pill ${item.sweetness === "regular" ? "active" : ""}" onclick="setMilkOption(${item.cartId}, 'sweetness', 'regular')">Regular</button>
-        </div>
-        ` : ``}
-      `
-        : `
-        <div class="cart-item-details">
-          ${(item.bundleDetails?.milks || [])
-            .map(
-              (m) => `<div style="margin:5px 0;font-size:12px;">
-              ${m.icon || "🥛"} ${m.name} - ${m.temp} · ${m.sweetness}
-            </div>`
-            )
-            .join("")}
-
-          <div style="margin-top:8px;font-size:12px;">
-            + ${item.bundleDetails?.cookies || 0} cookies 🍪
-          </div>
-
-          <button class="edit-link" style="margin-top:10px;" onclick="editBundleFromCart(${item.cartId})">
-            edit
-          </button>
-        </div>
-      `;
-
-      const itemTotal = (item.price || 0) * (item.qty || 1);
-
-      return `
-      <div class="cart-item">
-        <h4>${title}</h4>
-        ${details}
-
-        <div class="cart-controls">
-          <div class="qty-control">
-            <button class="qty-btn" onclick="changeQty(${item.cartId}, -1)">−</button>
-            <div class="qty-num">${item.qty || 1}</div>
-            <button class="qty-btn" onclick="changeQty(${item.cartId}, 1)">+</button>
-          </div>
-
-          <div class="cart-item-price" style="margin-top:0; flex:1;">
-            <span>${formatINR(itemTotal)}</span>
-            <button class="remove-item" onclick="removeFromCart(${item.cartId})">Remove</button>
-          </div>
-        </div>
-      </div>
-    `;
-    })
-    .join("");
-
-  const subtotal = cart.reduce((sum, item) => sum + item.price * (item.qty || 1), 0);
-  const delivery = subtotal >= FREE_DELIVERY_THRESHOLD
-    ? 0
-    : subtotal > 0
-      ? DELIVERY_FEE
-      : 0;
-  const total = subtotal + delivery;
-
-  cartFooter.innerHTML = `
-    <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px;">
-      <span>Subtotal</span>
-      <span>${formatINR(subtotal)}</span>
-    </div>
-
-    <div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px;">
-      <span>Delivery</span>
-      <span>${delivery === 0 ? "Free" : formatINR(delivery)}</span>
-    </div>
-    <div style="font-size:11px;letter-spacing:0.5px;opacity:0.7;margin-bottom:12px;">
-      Free delivery over ₹2,000
-    </div>
-
-    <div class="cart-total">
-      <span>Total:</span>
-      <span>${formatINR(total)}</span>
-    </div>
-
-    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-  `;
-
-  cartFooter.style.display = "block";
-}
-
-window.updateCart = updateCart;
-
-// ---------- BUNDLE MODAL HELPERS ----------
-function removeMilkFromBundle(index) {
-  currentBundle.selectedMilks.splice(index, 1);
-
-  const countEl = document.getElementById("milkCount");
-  if (countEl) {
-    countEl.textContent = `${currentBundle.selectedMilks.length}/${currentBundle.milkCount}`;
-  }
-
-  document.querySelectorAll(".milk-select-card").forEach((card) => {
-    const milkId = Number(card.dataset.milkId);
-    const selected = currentBundle.selectedMilks.some((m) => m.id === milkId);
-    card.classList.toggle("selected", selected);
-  });
-
-  const err = document.getElementById("milkError");
-  if (err) err.style.display = "none";
-
-  updateCustomizationOptions();
-}
-
-function updateBundleMilk(index, property, value, btnEl) {
-  const milk = currentBundle.selectedMilks[index];
-  if (!milk) return;
-
-  milk[property] = value;
-
-  const group = btnEl?.parentElement;
-  if (!group) return;
-
-  group.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("active"));
-  btnEl.classList.add("active");
-}
-
-function closeBundleModal() {
-  document.getElementById("bundleModal")?.classList.remove("active");
-  window.__editingBundleCartId = null;
-
-  const btn = document.getElementById("addBundleBtn");
-  if (btn) btn.textContent = "Add to Cart";
-}
-window.closeBundleModal = closeBundleModal;
-
-function addCustomizedBundle() {
-  const err = document.getElementById("milkError");
-
-  if (currentBundle.selectedMilks.length !== currentBundle.milkCount) {
-    if (err) {
-      err.textContent = `Please select exactly ${currentBundle.milkCount} milks`;
-      err.style.display = "block";
-    }
-    return;
-  }
-
-  const bundleDetails = {
-    milks: currentBundle.selectedMilks.map((m) => ({
-      id: m.id,
-      name: m.name,
-      icon: m.icon || "🥛",
-      temp: m.temp || "hot",
-      sweetness: m.sweetness || "regular",
-    })),
-    cookies: currentBundle.cookieCount,
-  };
-
-  // EDIT EXISTING
-  if (window.__editingBundleCartId) {
-    const item = cart.find((i) => i.cartId === window.__editingBundleCartId);
-    if (item) {
-      item.bundleDetails = bundleDetails;
-      item.name = currentBundle.name;
-      item.price = currentBundle.price;
-    }
-
-    updateCart();
-    closeBundleModal();
-    showCartNotification();
-    return;
-  }
-
-  // ADD NEW
-  cart.push({
-    id: "bundle",
-    name: currentBundle.name,
-    price: currentBundle.price,
-    qty: 1,
-    cartId: Date.now(),
-    isBundle: true,
-    bundleDetails,
-  });
-
-  updateCart();
-  closeBundleModal();
-  showCartNotification();
-  setTimeout(() => toggleCart(true), 350);
-}
-
-// ---------- EDIT BUNDLE FROM CART ----------
-function editBundleFromCart(cartId) {
-  const item = cart.find((i) => i.cartId === cartId);
-  if (!item || !item.isBundle) return;
-
-  currentBundle = {
-    name: item.name,
-    milkCount: item.bundleDetails?.milks?.length || 0,
-    cookieCount: item.bundleDetails?.cookies || 0,
-    price: item.price,
-    selectedMilks: (item.bundleDetails?.milks || []).map((m) => ({
-      id: m.id,
-      name: m.name,
-      icon: m.icon || "🥛",
-      temp: m.temp || "hot",
-      sweetness: m.sweetness || "regular",
-    })),
-  };
-
-  window.__editingBundleCartId = cartId;
-
-  document.getElementById("bundleModalTitle").textContent = currentBundle.name;
-  document.getElementById("bundleModalPrice").textContent = formatINR(currentBundle.price);
-  document.getElementById("milkCount").textContent = `${currentBundle.selectedMilks.length}/${currentBundle.milkCount}`;
-
-  const milkProducts = products.filter((p) => p.id !== 5);
-  const grid = document.getElementById("milkSelectionGrid");
-
-  grid.innerHTML = milkProducts
-    .map((milk) => {
-      const selected = currentBundle.selectedMilks.some((m) => m.id === milk.id);
-      return `
-      <div class="milk-select-card ${selected ? "selected" : ""}"
-           data-milk-id="${milk.id}"
-           onclick="toggleMilkSelection(${milk.id}, this)">
-        <div class="milk-select-icon">${milk.icon || "🥛"}</div>
-        <div class="milk-select-name">${milk.name}</div>
-      </div>
-    `;
-    })
-    .join("");
-
-  const milkError = document.getElementById("milkError");
-  if (milkError) milkError.style.display = "none";
-
-  updateCustomizationOptions();
-
-  const btn = document.getElementById("addBundleBtn");
-  if (btn) btn.textContent = "Save Changes";
-
-  document.getElementById("bundleModal").classList.add("active");
-}
-window.editBundleFromCart = editBundleFromCart;
-
-      
-        // Waitlist form
         document.addEventListener("DOMContentLoaded", () => {
-          loadProducts();
-
           const shopDropdown = document.querySelector(".nav-dropdown");
           const shopLink = document.querySelector(".nav-dropdown .nav-link");
           if (shopDropdown && shopLink) {
@@ -3002,68 +2030,7 @@ window.editBundleFromCart = editBundleFromCart;
               toggleNav(false);
             }
           });
-      
-          const waitlistForm = document.getElementById("waitlistForm");
-          waitlistForm?.addEventListener("submit", async (e) => {
-            e.preventDefault();
-
-            const successEl = document.getElementById("waitlistSuccess");
-            const errorEl = document.getElementById("waitlistError");
-            if (successEl) successEl.style.display = "none";
-            if (errorEl) errorEl.style.display = "none";
-
-            const name = document.getElementById("waitlistName")?.value?.trim() || "";
-            const email = document.getElementById("waitlistEmail")?.value?.trim() || "";
-            const phone = document.getElementById("waitlistPhone")?.value?.trim() || "";
-            const city = document.getElementById("waitlistCity")?.value?.trim() || "";
-            const cartSnapshot = getCartSnapshot();
-
-            if (!supabaseClient) {
-              if (errorEl) {
-                errorEl.textContent = "Supabase failed to load — refresh and try again.";
-                errorEl.style.display = "block";
-              }
-              return;
-            }
-
-            const { error } = await supabaseClient.from(WAITLIST_TABLE).insert([
-              { name, email, phone, city, cart: cartSnapshot }
-            ]);
-
-            if (error) {
-              console.error("Supabase insert error:", error);
-              if (errorEl) {
-                if (error.code === "23505") {
-                  errorEl.textContent = "That email is already on the list — thank you!";
-                } else {
-                  errorEl.textContent = error.message || "Couldn't save your info. Please try again.";
-                }
-                errorEl.style.display = "block";
-              }
-              return;
-            }
-
-            if (successEl) successEl.style.display = "block";
-            waitlistForm.reset();
-            setTimeout(() => {
-              if (successEl) successEl.style.display = "none";
-            }, 5000);
-          });
-      
-          // Smooth scroll
-          document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-            anchor.addEventListener("click", function (e) {
-              e.preventDefault();
-              const target = document.querySelector(this.getAttribute("href"));
-              target?.scrollIntoView({ behavior: "smooth", block: "start" });
-            });
-          });
         });
-
-        console.log("JS loaded");
-
-      </script>
-      
-    
+    </script>
 </body>
 </html>
